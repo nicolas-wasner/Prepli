@@ -12,8 +12,14 @@ load_dotenv()  # charge les variables depuis un fichier .env
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
+    "pool_pre_ping": True,
+    "pool_recycle": 280
+}
 
 db = SQLAlchemy(app)
+
+
 
 # Définition du modèle Fiche
 class Fiche(db.Model):
