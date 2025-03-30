@@ -5,14 +5,19 @@ from docx.shared import Inches, Pt
 from docx.enum.section import WD_ORIENT
 import os
 import io
+from dotenv import load_dotenv
+
+load_dotenv()  # charge les variables depuis un fichier .env
 
 app = Flask(__name__)
-
-# Configuration de la base de données SQLite
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost:8889/prep_fiches'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+
+
+app = Flask(__name__)
+
 
 # Définition du modèle Fiche
 class Fiche(db.Model):
