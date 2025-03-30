@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Modifier la fiche</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    {% include "_header.html" %}
+
+  <div class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-md">
+    <h1 class="text-2xl font-bold mb-4">Modifier la fiche #{{ fiche.id }}</h1>
+
+    <form method="post" class="space-y-4">
+      <div>
+        <label>Domaine :</label>
+        <input type="text" name="domaine" value="{{ fiche.domaine }}" class="w-full p-2 border rounded" />
+      </div>
+
+      <div>
+        <label>Durée :</label>
+        <input type="text" name="duree" value="{{ fiche.duree }}" class="w-full p-2 border rounded" />
+      </div>
+
+      <div>
+        <label>Niveau :</label>
+        <input type="text" name="niveau" value="{{ fiche.niveau }}" class="w-full p-2 border rounded" />
+      </div>
+
+      <div>
+        <label>Titre de la séquence :</label>
+        <input type="text" name="sequence" value="{{ fiche.sequence }}" class="w-full p-2 border rounded" />
+      </div>
+
+      <div>
+        <label>Titre de la séance :</label>
+        <input type="text" name="seance" value="{{ fiche.seance }}" class="w-full p-2 border rounded" />
+      </div>
+
+      <div>
+        <label>Objectifs :</label>
+        <textarea name="objectifs" class="w-full p-2 border rounded">{{ fiche.objectifs }}</textarea>
+      </div>
+      <div>
+        <label>Compétences du SCCCC</label>
+        <textarea name="competences_scccc" class="w-full p-2 border rounded">{{ fiche.competences_scccc }}</textarea>
+      </div>
+      
+      <div>
+        <label>AFC (attendus de fin de cycle)</label>
+        <textarea name="afc" class="w-full p-2 border rounded">{{ fiche.afc }}</textarea>
+      </div>
+      
+      <div>
+        <label>Prérequis</label>
+        <textarea name="prerequis" class="w-full p-2 border rounded">{{ fiche.prerequis }}</textarea>
+      </div>
+      
+      <div>
+        <label>Consigne</label>
+        <textarea name="consigne" class="w-full p-2 border rounded">{{ fiche.consigne }}</textarea>
+      </div>
+      
+      <div>
+        <label>Rôle de l’enseignant</label>
+        <textarea name="enseignant" class="w-full p-2 border rounded">{{ fiche.enseignant }}</textarea>
+      </div>
+      
+      <div>
+        <label>Rôle de l’élève</label>
+        <textarea name="eleve" class="w-full p-2 border rounded">{{ fiche.eleve }}</textarea>
+      </div>
+      
+      <div>
+        <label>Différenciation</label>
+        <textarea name="differenciation" class="w-full p-2 border rounded">{{ fiche.differenciation }}</textarea>
+      </div>
+      
+      <div>
+        <label>Matériel</label>
+        <textarea name="materiel" class="w-full p-2 border rounded">{{ fiche.materiel }}</textarea>
+      </div>
+      
+      <div><label>Nom / Prénom de l’enseignant :</label>
+        <input type="text" name="nom_enseignant" value="{{ fiche.nom_enseignant }}" class="w-full p-2 border rounded" />
+      </div>
+
+      <div><label>Modalités d’évaluation :</label>
+        <textarea name="modalites_evaluation" class="w-full p-2 border rounded">{{ fiche.modalites_evaluation }}</textarea>
+      </div>
+
+      <div><label>Bilan pédagogique et didactique :</label>
+        <textarea name="bilan" class="w-full p-2 border rounded">{{ fiche.bilan }}</textarea>
+      </div>
+
+      <div><label>Prolongement(s) possible(s) :</label>
+        <textarea name="prolongements" class="w-full p-2 border rounded">{{ fiche.prolongements }}</textarea>
+      </div>
+
+      <div><label>Remédiation(s) éventuelle(s) :</label>
+        <textarea name="remediations" class="w-full p-2 border rounded">{{ fiche.remediations }}</textarea>
+      </div>
+      <!-- Ajoute les autres champs selon besoin -->
+
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        Enregistrer les modifications
+      </button>
+    </form>
+
+    <div class="mt-4">
+      <a href="/fiches" class="text-blue-600 hover:underline">← Retour</a>
+    </div>
+  </div>
+</body>
+</html>

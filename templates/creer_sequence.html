@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Créer une séquence</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+  {% include "_header.html" %}
+
+  <div class="max-w-3xl mx-auto bg-white p-6 rounded-xl shadow-md">
+    <h1 class="text-2xl font-bold mb-6">Créer une séquence</h1>
+
+    <form method="post" class="space-y-6">
+      <div>
+        <label class="block font-semibold">Titre de la séquence</label>
+        <input type="text" name="titre" class="w-full p-2 border rounded" required />
+      </div>
+
+      <div>
+        <label class="block font-semibold">Séances à inclure :</label>
+        <div class="space-y-2 max-h-60 overflow-y-auto border rounded p-3">
+          {% for fiche in fiches %}
+            <label class="block">
+              <input type="checkbox" name="seances" value="{{ fiche.id }}" />
+              {{ fiche.seance }} ({{ fiche.sequence or 'sans séquence' }})
+            </label>
+          {% endfor %}
+        </div>
+      </div>
+
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        Enregistrer la séquence
+      </button>
+    </form>
+  </div>
+</body>
+</html>

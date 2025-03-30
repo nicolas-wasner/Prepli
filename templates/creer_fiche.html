@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fiche de préparation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+    {% include "_header.html" %}
+  <div class="max-w-4xl mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6 text-center">Créer une fiche de préparation</h1>
+
+    <form action="/submit" method="post" class="bg-white shadow-md rounded-xl p-8 space-y-6">
+      <!-- Exemple de champ -->
+      <div>
+        <label class="block font-semibold">Domaine d'apprentissage</label>
+        <input type="text" name="domaine" required class="w-full mt-1 p-2 border rounded-md" />
+      </div>
+
+      <div>
+        <label class="block font-semibold">Durée</label>
+        <input type="text" name="duree" class="w-full mt-1 p-2 border rounded-md" />
+      </div>
+
+      <div>
+        <label class="block font-semibold">Niveau</label>
+        <input type="text" name="niveau" class="w-full mt-1 p-2 border rounded-md" />
+      </div>
+
+      <div>
+        <label class="block font-semibold">Titre de la séquence</label>
+        <input type="text" name="sequence" class="w-full mt-1 p-2 border rounded-md" />
+      </div>
+
+      <div>
+        <label class="block font-semibold">Titre de la séance</label>
+        <input type="text" name="seance" class="w-full mt-1 p-2 border rounded-md" />
+      </div>
+
+      <!-- Textareas -->
+      <div>
+        <label class="block font-semibold">Compétences visées</label>
+        <textarea name="competences_visees" class="w-full mt-1 p-2 border rounded-md"></textarea>
+      </div>
+
+      <div>
+        <label class="block font-semibold">Compétences du SCCCC</label>
+        <textarea name="competences_scccc" class="w-full mt-1 p-2 border rounded-md"></textarea>
+      </div>
+
+      <div>
+        <label class="block font-semibold">Objectifs visés</label>
+        <textarea name="objectifs" class="w-full mt-1 p-2 border rounded-md"></textarea>
+      </div>
+
+      <div>
+        <label class="block font-semibold">AFC</label>
+        <input type="text" name="afc" class="w-full mt-1 p-2 border rounded-md" />
+      </div>
+
+      <div>
+        <label class="block font-semibold">Prérequis</label>
+        <textarea name="prerequis" class="w-full mt-1 p-2 border rounded-md"></textarea>
+      </div>
+
+      <div>
+        <label class="block font-semibold">Phases et durée</label>
+        <textarea name="phases" class="w-full mt-1 p-2 border rounded-md"></textarea>
+      </div>
+
+      <div>
+        <label class="block font-semibold">Déroulement</label>
+        <textarea name="deroulement" class="w-full mt-1 p-2 border rounded-md"></textarea>
+      </div>
+
+      <div>
+        <label class="block font-semibold">Consigne</label>
+        <textarea name="consigne" class="w-full mt-1 p-2 border rounded-md"></textarea>
+      </div>
+
+      <div>
+        <label class="block font-semibold">Rôle de l’enseignant</label>
+        <textarea name="enseignant" class="w-full mt-1 p-2 border rounded-md"></textarea>
+      </div>
+
+      <div>
+        <label class="block font-semibold">Rôle de l’élève</label>
+        <textarea name="eleve" class="w-full mt-1 p-2 border rounded-md"></textarea>
+      </div>
+
+      <div>
+        <label class="block font-semibold">Différenciation</label>
+        <textarea name="differenciation" class="w-full mt-1 p-2 border rounded-md"></textarea>
+      </div>
+
+      <div>
+        <label class="block font-semibold">Matériel</label>
+        <textarea name="materiel" class="w-full mt-1 p-2 border rounded-md"></textarea>
+      </div>
+      <div>
+        <label>Nom / Prénom de l’enseignant :</label>
+        <input type="text" name="nom_enseignant" class="w-full p-2 border rounded" />
+      </div>
+      
+      <div>
+        <label>Modalités d’évaluation :</label>
+        <textarea name="modalites_evaluation" class="w-full p-2 border rounded"></textarea>
+      </div>
+      
+      <div>
+        <label>Bilan pédagogique et didactique :</label>
+        <textarea name="bilan" class="w-full p-2 border rounded"></textarea>
+      </div>
+      
+      <div>
+        <label>Prolongement(s) possible(s) :</label>
+        <textarea name="prolongements" class="w-full p-2 border rounded"></textarea>
+      </div>
+      
+      <div>
+        <label>Remédiation(s) éventuelle(s) :</label>
+        <textarea name="remediations" class="w-full p-2 border rounded"></textarea>
+      </div>
+      
+
+      <div class="text-center">
+        <button type="submit" class="bg-blue-600 text-white font-semibold px-6 py-2 rounded-md hover:bg-blue-700">
+          Enregistrer la fiche
+        </button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

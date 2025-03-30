@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Liste des séquences</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+  {% include "_header.html" %}
+
+  <div class="max-w-5xl mx-auto">
+    <h1 class="text-3xl font-bold mb-6">📁 Séquences enregistrées</h1>
+
+    {% if sequences %}
+      {% for sequence in sequences %}
+        <div class="bg-white shadow-md rounded-xl p-6 mb-6">
+          <h2 class="text-xl font-semibold mb-2">{{ sequence.titre }}</h2>
+
+          {% if sequence.seances %}
+            <ul class="list-disc list-inside text-gray-700">
+              {% for fiche in sequence.seances %}
+                <li>
+                  <a href="/fiche/{{ fiche.id }}" class="text-blue-600 hover:underline">
+                    {{ fiche.seance }} ({{ fiche.niveau }})
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p class="text-gray-500">Aucune séance associée.</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    {% else %}
+      <p class="text-gray-600">Aucune séquence enregistrée pour le moment.</p>
+    {% endif %}
+  </div>
+</body>
+</html>

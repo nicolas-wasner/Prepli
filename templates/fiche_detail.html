@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fiche {{ fiche.id }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+  {% include "_header.html" %}
+
+  <div class="max-w-7xl mx-auto bg-white p-6 rounded-xl shadow space-y-6">
+
+    <h1 class="text-3xl font-bold mb-4">📄 Fiche de préparation</h1>
+
+    <!-- 🧾 Tableau 1 : Infos générales -->
+    <table class="table-auto w-full border border-gray-300 text-sm">
+      <tbody>
+        <tr class="bg-gray-100">
+          <th class="border p-2 text-left font-semibold">Domaine d’apprentissage</th>
+          <th class="border p-2 text-left font-semibold">Niveau</th>
+          <th class="border p-2 text-left font-semibold">Durée</th>
+        </tr>
+        <tr>
+          <td class="border p-2">{{ fiche.domaine }}</td>
+          <td class="border p-2">{{ fiche.niveau }}</td>
+          <td class="border p-2">{{ fiche.duree }}</td>
+        </tr>
+        <tr class="bg-gray-100">
+          <th class="border p-2 text-left font-semibold">Séquence</th>
+          <th class="border p-2 text-left font-semibold">Séance</th>
+          <th class="border p-2 text-left font-semibold">Place dans la séquence</th>
+        </tr>
+        <tr>
+          <td class="border p-2">{{ fiche.sequence }}</td>
+          <td class="border p-2">{{ fiche.seance }}</td>
+          <td class="border p-2">/</td>
+        </tr>
+        <tr class="bg-gray-100">
+          <th class="border p-2 text-left font-semibold">Objectifs visés</th>
+          <th class="border p-2 text-left font-semibold">Compétences visées</th>
+          <th class="border p-2 text-left font-semibold">AFC</th>
+        </tr>
+        <tr>
+          <td class="border p-2">{{ fiche.objectifs }}</td>
+          <td class="border p-2">{{ fiche.competences_visees }}</td>
+          <td class="border p-2">{{ fiche.afc }}</td>
+        </tr>
+        <tr class="bg-gray-100">
+          <th class="border p-2 text-left font-semibold" colspan="3">Prérequis</th>
+        </tr>
+        <tr>
+          <td class="border p-2" colspan="3">{{ fiche.prerequis }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 🔁 Tableau 2 : Déroulement -->
+    <h2 class="text-xl font-semibold">Déroulement de la séance</h2>
+    <table class="table-auto w-full border border-gray-300 text-sm">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="border p-2">Phase et durée</th>
+          <th class="border p-2">Déroulement</th>
+          <th class="border p-2">Consigne</th>
+          <th class="border p-2">Rôle de l’enseignant</th>
+          <th class="border p-2">Rôle de l’élève</th>
+          <th class="border p-2">Différenciation</th>
+          <th class="border p-2">Matériel</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border p-2">{{ fiche.phases }}</td>
+          <td class="border p-2">{{ fiche.deroulement }}</td>
+          <td class="border p-2">{{ fiche.consigne }}</td>
+          <td class="border p-2">{{ fiche.enseignant }}</td>
+          <td class="border p-2">{{ fiche.eleve }}</td>
+          <td class="border p-2">{{ fiche.differenciation }}</td>
+          <td class="border p-2">{{ fiche.materiel }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 🔽 Tableau 3 : Évaluation, bilan... -->
+    <h2 class="text-xl font-semibold">Compléments de séance</h2>
+    <table class="table-auto w-full border border-gray-300 text-sm">
+      <tbody>
+        <tr class="bg-gray-100">
+          <th class="border p-2 text-left font-semibold">Modalités d’évaluation</th>
+        </tr>
+        <tr><td class="border p-2">{{ fiche.modalites_evaluation }}</td></tr>
+
+        <tr class="bg-gray-100">
+          <th class="border p-2 text-left font-semibold">Bilan pédagogique et didactique</th>
+        </tr>
+        <tr><td class="border p-2">{{ fiche.bilan }}</td></tr>
+
+        <tr class="bg-gray-100">
+          <th class="border p-2 text-left font-semibold">Prolongement(s) possible(s)</th>
+        </tr>
+        <tr><td class="border p-2">{{ fiche.prolongements }}</td></tr>
+
+        <tr class="bg-gray-100">
+          <th class="border p-2 text-left font-semibold">Remédiation(s) éventuelle(s)</th>
+        </tr>
+        <tr><td class="border p-2">{{ fiche.remediations }}</td></tr>
+
+        <tr class="bg-gray-100">
+          <th class="border p-2 text-left font-semibold">Nom / Prénom de l’enseignant</th>
+        </tr>
+        <tr><td class="border p-2">{{ fiche.nom_enseignant }}</td></tr>
+      </tbody>
+    </table>
+
+    <div class="mt-6 flex flex-wrap gap-4">
+      <a href="/modifier/{{ fiche.id }}" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">✏️ Modifier</a>
+      <a href="/exporter/{{ fiche.id }}" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">⬇️ Exporter</a>
+      <a href="/supprimer/{{ fiche.id }}" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">🗑️ Supprimer</a>
+      <a href="/fiches" class="text-blue-600 hover:underline">← Retour à la liste</a>
+    </div>
+  </div>
+</body>
+</html>

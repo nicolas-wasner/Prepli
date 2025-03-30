@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>PrepLi — Tableau de bord</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center font-sans">
+  {% include "_header.html" %}
+
+  <div class="bg-white rounded-xl shadow-lg p-10 w-full max-w-xl text-center">
+    <h1 class="text-3xl font-bold mb-6">Bienvenue sur PrepLi</h1>
+    <p class="mb-8 text-gray-600">Votre assistant pour la création et l'organisation des fiches de préparation de séance.</p>
+
+      <div class="space-y-4">
+        <a href="/creer" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-md">
+          ➕ Créer une nouvelle fiche
+        </a>
+        <a href="/fiches" class="block w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 rounded-md">
+          📂 Voir les fiches enregistrées
+        </a>
+        <a href="/sequences/creer" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-md">
+          ➕ Créer une séquence
+        </a>
+        <a href="/sequences" class="block w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 rounded-md">
+          📁 Voir les séquences
+        </a>
+      </div>
+    
+  </div>
+</body>
+</html>

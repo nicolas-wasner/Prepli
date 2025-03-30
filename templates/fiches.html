@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Liste des fiches</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    {% include "_header.html" %}
+
+  <h1 class="text-3xl font-bold mb-6 text-center">Liste des fiches de préparation</h1>
+
+  <form method="get" class="mb-6 flex flex-wrap items-center gap-4">
+    <input type="text" name="recherche" placeholder="Recherche..." value="{{ request.args.get('recherche', '') }}"
+           class="p-2 border rounded-md" />
+  
+    <select name="niveau" class="p-2 border rounded-md">
+      <option value="">Tous niveaux</option>
+      {% for n in niveaux %}
+        <option value="{{ n[0] }}" {% if request.args.get('niveau') == n[0] %}selected{% endif %}>{{ n[0] }}</option>
+      {% endfor %}
+    </select>
+  
+    <select name="domaine" class="p-2 border rounded-md">
+      <option value="">Tous domaines</option>
+      {% for d in domaines %}
+        <option value="{{ d[0] }}" {% if request.args.get('domaine') == d[0] %}selected{% endif %}>{{ d[0] }}</option>
+      {% endfor %}
+    </select>
+  
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+      Filtrer
+    </button>
+  </form>
+  
+
+  <div class="overflow-x-auto bg-white rounded-xl shadow-md p-6">
+    <table class="w-full table-auto border-collapse">
+      <thead>
+        <tr class="bg-gray-200 text-left text-sm font-semibold">
+          <th class="p-3">#</th>
+          <th class="p-3">Titre de la séquence</th>
+          <th class="p-3">Titre de la séance</th>
+          <th class="p-3">Niveau</th>
+          <th class="p-3">Domaine</th>
+          <th class="p-3">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for fiche in fiches %}
+        <tr class="border-t text-sm">
+          <td class="p-3">{{ fiche.id }}</td>
+          <td class="p-3">{{ fiche.sequence }}</td>
+          <td class="p-3">{{ fiche.seance }}</td>
+          <td class="p-3">{{ fiche.niveau }}</td>
+          <td class="p-3">{{ fiche.domaine }}</td>
+          <td class="p-3">
+            <a href="/fiche/{{ fiche.id }}" class="text-blue-600 hover:underline">Voir</a>
+            <!-- Tu pourras plus tard ajouter : modifier / supprimer / exporter -->
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-6 text-center">
+    <a href="/" class="text-blue-500 hover:underline">← Retour au formulaire</a>
+  </div>
+</body>
+</html>
