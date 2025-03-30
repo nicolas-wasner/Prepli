@@ -15,10 +15,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-
-app = Flask(__name__)
-
-
 # Définition du modèle Fiche
 class Fiche(db.Model):
     id = db.Column(db.Integer, primary_key=True)
