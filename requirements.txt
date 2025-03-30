@@ -1,4 +1,5 @@
 flask
 flask_sqlalchemy
-pymysql
+python-docx
 gunicorn
+pymysql
