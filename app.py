@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, request, send_file
+from flask import Flask, redirect, render_template, request, send_file, flash
 from docx import Document
 from flask_sqlalchemy import SQLAlchemy
 from docx.shared import Inches, Pt
@@ -95,14 +95,10 @@ def submit():
     )
     db.session.add(fiche)
     db.session.commit()
+    flash("Fiche créée avec succès ✅", "success")
+    return render_template("confirmation.html", message="Fiche créée avec succès ✅")
 
-    return "Fiche enregistrée avec succès en base !"
 
-
-# @app.route('/fiches')
-# def fiches():
-#     toutes_les_fiches = Fiche.query.order_by(Fiche.id.desc()).all()
-#     return render_template('fiches.html', fiches=toutes_les_fiches)
 
 @app.route('/fiches')
 def fiches():
@@ -218,7 +214,8 @@ def modifier_fiche(id):
 
         
         db.session.commit()
-        return f"Fiche #{id} modifiée avec succès. <a href='/fiches'>Retour</a>"
+        flash("Fiche créée avec succès ✅", "success")
+        return render_template("confirmation.html", message="Fiche modifié avec succès ✅")
 
     return render_template("modifier_fiche.html", fiche=fiche)
 
